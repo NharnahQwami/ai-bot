@@ -4,7 +4,7 @@ import markdown
 
 app = Flask(__name__)
 
-client = genai.Client(api_key="AIzaSyBDQRIctzDb5Ve2BzRMX9Km6sg4gVoViC0")
+client = genai.Client(api_key="GEMINI API KEY")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
