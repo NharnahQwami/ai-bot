@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-    <h1>AI ChatBot</h1>
+    <center><h1>AI ChatBot</h1></center>
     <form method="POST">
         <label>Enter your prompt here:</label><br>
         <textarea name="prompt" placeholder="Ask the bot something..."></textarea><br><br>
@@ -19,7 +19,7 @@
     {% if response %}
     <div class="response">
         <h3>Response:</h3>
-        <p>{{ response }}</p>
+        <p>{{ response|safe }}</p>
     </div>
     {% endif %}
 </body>

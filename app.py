@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 from google import genai
+import markdown
 
 app = Flask(__name__)
 
-client = genai.Client(api_key="API KEY")
+client = genai.Client(api_key="AIzaSyBDQRIctzDb5Ve2BzRMX9Km6sg4gVoViC0")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -15,9 +16,10 @@ def index():
                 model="gemini-2.5-flash",
                 contents=user_prompt
             )
-            response_text = response.text
+            # Convert Markdown to HTML
+            response_text = markdown.markdown(response.text)
     
     return render_template("index.html", response=response_text)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5000)
